@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       set_current_user(@user)
-      render 'api/users/user'
+      render :show
     else
       render json: @user.errors.full_messages
     end
