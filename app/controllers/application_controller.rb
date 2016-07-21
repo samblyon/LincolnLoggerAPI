@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
 
   def current_user
-    @current_user || User.find_by(session_token: params[:session_token])
+    @current_user || User.find_by(session_token: request.headers["HTTP_SESSION_TOKEN"])
   end
 
   def set_current_user(user)
