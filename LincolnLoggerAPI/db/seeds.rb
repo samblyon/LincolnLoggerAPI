@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!(username: "sam", password: "aaaaaa")
+User.create!(username: "apple", password: "aaaaaa")
+User.create!(username: "pope", password: "aaaaaa")
+
+User.all.each do |user|
+  rand(5).times do
+    user.logs.create!
+  end
+end
