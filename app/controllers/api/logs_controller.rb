@@ -1,5 +1,5 @@
 class Api::LogsController < ApplicationController
-  before_filter :validated?
+  before_action :block_unless_validated
 
   def index
     render json: current_user.logs

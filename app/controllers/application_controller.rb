@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def block_unless_validated
+    unless validated?
+      render json: {'message': 'Log in or sign up to continue'}, status: 402
+    end
+  end
+
   def logged_out?
     !logged_in
   end
