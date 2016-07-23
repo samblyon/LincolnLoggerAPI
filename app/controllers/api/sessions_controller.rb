@@ -8,13 +8,13 @@ class Api::SessionsController < ApplicationController
       set_current_user(@user)
       render 'api/users/show'
     else
-      render json: {'message': 'Invalid username or password'}, status: 422
+      render json: { errors: 'Invalid username or password'}, status: 401
     end
   end
 
   def destroy
     logout!
-    render json: {'message': 'Successfully logged out'}, status: 200 
+    render json: { message: 'Successfully logged out'}, status: 200
   end
 
   private
