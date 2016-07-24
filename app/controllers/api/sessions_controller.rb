@@ -3,7 +3,7 @@ class Api::SessionsController < ApplicationController
     username = session_params[:username]
     password = session_params[:password]
 
-    @user = User.find_by_credentials(username, password)
+    @user = User.includes(:logs).find_by_credentials(username, password)
     if @user
       set_current_user(@user)
       render 'api/users/show'

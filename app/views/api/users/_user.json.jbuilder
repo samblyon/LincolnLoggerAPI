@@ -1,2 +1,3 @@
 json.extract! @user, :username,
-                     :session_token
+                     :session_token,
+                     :logs
