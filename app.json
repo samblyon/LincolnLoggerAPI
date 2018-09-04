@@ -38,5 +38,6 @@
     {
       "url": "heroku/ruby"
     }
-  ]
+  ],
+  "stack": "heroku-16"
 }
